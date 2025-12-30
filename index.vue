@@ -1,14 +1,6 @@
 <template>
-  <ad-popover
-    dismissable
-    icon="prime:code"
-    :position="position"
-  >
-    <ad-terminal
-      prompt="artisan >"
-      welcome-message="The ''help'' command displays help"
-    />
-  </ad-popover>
+  <nuc-terminal :position="position" />
+  <nuc-friendship :position="position" />
 
   <ad-dock
     :model="dockItems"
@@ -89,7 +81,7 @@ onMounted(async () => {
   window.addEventListener('resize', setDockPositionForScreenSize)
 })
 
-watch(position, (newPosition) => {
+watch(position, (newPosition: PositionType) => {
   localStorageSetItem(LOCAL_STORAGE_KEY, newPosition)
 })
 </script>
