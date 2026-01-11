@@ -1,7 +1,12 @@
 <template>
-  <nuc-terminal :position="position" />
-  <nuc-friendship :position="position" />
-  <nuc-share :position="position" />
+  <div
+    :class="position"
+    class="nuc-dock-popovers"
+  >
+    <nuc-share :position="position" />
+    <nuc-friendship :position="position" />
+    <nuc-terminal :position="position" />
+  </div>
 
   <ad-dock
     :model="dockItems"
