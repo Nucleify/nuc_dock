@@ -1,6 +1,7 @@
 <template>
   <nuc-terminal :position="position" />
   <nuc-friendship :position="position" />
+  <nuc-share :position="position" />
 
   <ad-dock
     :model="dockItems"
