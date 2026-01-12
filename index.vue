@@ -15,9 +15,9 @@
     class="nuc-dock"
   >
     <template #item="{ item }">
-      <nuxt-link v-if="item.logo" :to="item.url" :aria-label="item.label">
+      <a v-if="item.logo" :href="item.url" :aria-label="item.label">
         <ad-logo ad-type="main" />
-      </nuxt-link>
+      </a>
       
       <nuxt-link v-if="item.icon && (item.url || item.click)" :to="item.url" :aria-label="item.label">
         <ad-icon
