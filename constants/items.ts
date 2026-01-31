@@ -31,7 +31,6 @@ const dockData: readonly DockItemInterface[] = [
   ['prime:sitemap', 'Structural', '/structural', undefined, 'structural'],
   ['prime:box', 'Entities', '/entities', undefined, 'entities'],
   ['prime:file', 'Files', '/files', undefined, 'files'],
-  ['prime:check-square', 'Tasks', '/tasks', undefined, 'tasks'],
   ['prime:calendar', 'Calendar', undefined, 'disabled-item'],
   ['prime:history', 'Activities', '/activity-log', undefined, 'activity-log'],
   ['prime:cog', 'Settings', '/settings#modules', undefined, 'settings'],

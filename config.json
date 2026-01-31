@@ -1,7 +1,7 @@
 {
   "name": "nuc_dock",
   "description": "Module that contains dock functionality.",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "category": "core",
   "installed": true,
   "enabled": true
