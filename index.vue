@@ -56,14 +56,23 @@
 </template>
 
 <script setup lang="ts">
+import { useRoute } from 'nuxt/app'
+import { computed } from 'vue'
+
 import {
   checkIsStaff,
-  dockItems,
+  getDockItems,
   localStorageGetItem,
   localStorageSetItem,
   positions,
   sessionStorageGetItem,
 } from 'atomic'
+
+const route = useRoute()
+const dockItems = computed(() => {
+  const lang = (route.params.lang as string) || 'en'
+  return getDockItems(lang)
+})
 
 const LOCAL_STORAGE_KEY = 'dock-position'
 

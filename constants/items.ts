@@ -25,21 +25,41 @@ const createDockItem = (
     logo,
   }) as const
 
-const dockData: readonly DockItemInterface[] = [
-  [undefined, 'Home', '/home', undefined, undefined, undefined, true],
-  ['prime:crown', 'Admin Panel', '/admin', undefined, 'admin'],
-  ['prime:sitemap', 'Structural', '/structural', undefined, 'structural'],
-  ['prime:box', 'Entities', '/entities', undefined, 'entities'],
-  ['prime:file', 'Files', '/files', undefined, 'files'],
-  ['prime:calendar', 'Calendar', undefined, 'disabled-item'],
-  ['prime:history', 'Activities', '/activity-log', undefined, 'activity-log'],
-  ['prime:cog', 'Settings', '/settings#modules', undefined, 'settings'],
-  ['prime:sign-out', 'Logout', undefined, undefined, undefined, logout],
-  [undefined, 'position', undefined, 'position'],
-] as const
+function getDockData(lang: string): readonly DockItemInterface[] {
+  return [
+    [undefined, 'Home', `/${lang}/home`, undefined, undefined, undefined, true],
+    ['prime:crown', 'Admin Panel', `/${lang}/admin`, undefined, 'admin'],
+    [
+      'prime:sitemap',
+      'Structural',
+      `/${lang}/structural`,
+      undefined,
+      'structural',
+    ],
+    ['prime:box', 'Entities', `/${lang}/entities`, undefined, 'entities'],
+    ['prime:file', 'Files', `/${lang}/files`, undefined, 'files'],
+    ['prime:calendar', 'Calendar', undefined, 'disabled-item'],
+    [
+      'prime:history',
+      'Activities',
+      `/${lang}/activity-log`,
+      undefined,
+      'activity-log',
+    ],
+    [
+      'prime:cog',
+      'Settings',
+      `/${lang}/settings#modules`,
+      undefined,
+      'settings',
+    ],
+    ['prime:sign-out', 'Logout', undefined, undefined, undefined, logout],
+    [undefined, 'position', undefined, 'position'],
+  ] as const
+}
 
-export const dockItems: readonly DockItemInterface[] = ref(
-  dockData.map(
+export function getDockItems(lang: string): readonly DockItemInterface[] {
+  return getDockData(lang).map(
     ([
       icon,
       label,
@@ -51,4 +71,4 @@ export const dockItems: readonly DockItemInterface[] = ref(
     ]): readonly DockItemInterface[] =>
       createDockItem(icon, label, url, className, adType, click, logo)
   )
-) as const
+}
