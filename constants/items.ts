@@ -2,6 +2,7 @@
 // @ts-nocheck
 
 import { ref } from 'vue'
+import type { Composer } from 'vue-i18n'
 
 import type { DockItemInterface } from 'atomic'
 import { logout } from 'atomic'
@@ -25,41 +26,68 @@ const createDockItem = (
     logo,
   }) as const
 
-function getDockData(lang: string): readonly DockItemInterface[] {
+function getDockData(
+  lang: string,
+  t: Composer['t']
+): readonly DockItemInterface[] {
   return [
-    [undefined, 'Home', `/${lang}/home`, undefined, undefined, undefined, true],
-    ['prime:crown', 'Admin Panel', `/${lang}/admin`, undefined, 'admin'],
+    [
+      undefined,
+      t('dock-home'),
+      `/${lang}/home`,
+      undefined,
+      undefined,
+      undefined,
+      true,
+    ],
+    ['prime:crown', t('dock-admin'), `/${lang}/admin`, undefined, 'admin'],
     [
       'prime:sitemap',
-      'Structural',
+      t('dock-structural'),
       `/${lang}/structural`,
       undefined,
       'structural',
     ],
-    ['prime:box', 'Entities', `/${lang}/entities`, undefined, 'entities'],
-    ['prime:file', 'Files', `/${lang}/files`, undefined, 'files'],
-    ['prime:calendar', 'Calendar', undefined, 'disabled-item'],
+    [
+      'prime:box',
+      t('dock-entities'),
+      `/${lang}/entities`,
+      undefined,
+      'entities',
+    ],
+    ['prime:file', t('dock-files'), `/${lang}/files`, undefined, 'files'],
+    ['prime:calendar', t('dock-calendar'), undefined, 'disabled-item'],
     [
       'prime:history',
-      'Activities',
+      t('dock-activities'),
       `/${lang}/activity-log`,
       undefined,
       'activity-log',
     ],
     [
       'prime:cog',
-      'Settings',
+      t('dock-settings'),
       `/${lang}/settings#modules`,
       undefined,
       'settings',
     ],
-    ['prime:sign-out', 'Logout', undefined, undefined, undefined, logout],
+    [
+      'prime:sign-out',
+      t('dock-logout'),
+      undefined,
+      undefined,
+      undefined,
+      logout,
+    ],
     [undefined, 'position', undefined, 'position'],
   ] as const
 }
 
-export function getDockItems(lang: string): readonly DockItemInterface[] {
-  return getDockData(lang).map(
+export function getDockItems(
+  lang: string,
+  t: Composer['t']
+): readonly DockItemInterface[] {
+  return getDockData(lang, t).map(
     ([
       icon,
       label,
