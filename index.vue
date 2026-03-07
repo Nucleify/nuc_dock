@@ -67,7 +67,7 @@ import {
   localStorageSetItem,
   positions,
   sessionStorageGetItem,
-} from 'atomic'
+} from 'nucleify'
 
 const route = useRoute()
 const { t } = useI18n()

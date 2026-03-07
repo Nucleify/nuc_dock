@@ -4,8 +4,8 @@
 import { ref } from 'vue'
 import type { Composer } from 'vue-i18n'
 
-import type { DockItemInterface } from 'atomic'
-import { logout } from 'atomic'
+import type { DockItemInterface } from 'nucleify'
+import { logout } from 'nucleify'
 
 const createDockItem = (
   icon?: string,
