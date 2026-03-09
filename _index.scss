@@ -78,8 +78,9 @@
   }
 
   &:not(.staff) {
-    .p-dock-item[aria-label='Admin Panel'],
-    .p-dock-item[aria-label='Structural'] {
+    .p-dock-item:has(a[href$='/admin']),
+    .p-dock-item:has(a[href$='/structural']),
+    .p-dock-item:has(a[href$='/translations']) {
       display: none;
     }
   }

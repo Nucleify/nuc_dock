@@ -65,6 +65,13 @@ function getDockData(
       'activity-log',
     ],
     [
+      'prime:language',
+      t('dock-translations'),
+      `/${lang}/translations`,
+      undefined,
+      'translations',
+    ],
+    [
       'prime:cog',
       t('dock-settings'),
       `/${lang}/settings#modules`,

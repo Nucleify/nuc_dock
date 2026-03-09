@@ -19,9 +19,13 @@
         <ad-logo ad-type="main" />
       </a>
       
-      <nuxt-link v-if="item.icon && (item.url || item.click)" :to="item.url" :aria-label="item.label">
+      <nuxt-link 
+        v-if="item.icon && (item.url || item.click)"
+        :to="item.url"
+        :aria-label="item.label"
+        v-tooltip.top="item.label"
+      >
         <ad-icon
-          v-tooltip="item.label"
           :icon="item.icon"
           class="item"
           :ad-type="item.adType"
