@@ -1,8 +1,5 @@
 <template>
-  <div
-    :class="position"
-    class="nuc-dock-popovers"
-  >
+  <div :class="position" class="nuc-dock-popovers">
     <nuc-share :position="position" />
     <nuc-friendship :position="position" />
     <nuc-terminal :position="position" />
@@ -18,8 +15,8 @@
       <a v-if="item.logo" :href="item.url" :aria-label="item.label">
         <ad-logo ad-type="main" />
       </a>
-      
-      <nuxt-link 
+
+      <nuxt-link
         v-if="item.icon && (item.url || item.click)"
         :to="item.url"
         :aria-label="item.label"
@@ -34,18 +31,18 @@
         />
       </nuxt-link>
 
-      <ad-icon 
-        v-if="item.icon && !item.url && !item.click" 
-        v-tooltip="item.label" 
-        :icon="item.icon" 
-        class="item disabled-item" 
+      <ad-icon
+        v-if="item.icon && !item.url && !item.click"
+        v-tooltip="item.label"
+        :icon="item.icon"
+        class="item disabled-item"
         size="1.7em"
         @click="item.click"
       />
 
       <div v-if="item.label === 'position'" class="dock-position-buttons">
         <ad-radio-button
-          v-for="pos of positions"
+          v-for="pos in positions"
           :key="pos.value"
           v-model="position"
           :value="pos.value"
