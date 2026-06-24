@@ -1,9 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-import { ref } from 'vue'
-import type { Composer } from 'vue-i18n'
-
 import type { DockItemInterface } from 'nucleify'
 import { logout } from 'nucleify'
 
@@ -15,21 +9,30 @@ const createDockItem = (
   adType?: string,
   click?: () => void,
   logo?: boolean
-): DockItemInterface =>
-  ({
-    icon,
-    label,
-    url,
-    class: className,
-    adType,
-    click,
-    logo,
-  }) as const
+): DockItemInterface => ({
+  icon,
+  label,
+  url,
+  class: className,
+  adType,
+  click,
+  logo,
+})
+
+type DockDataTuple = [
+  string?, // icon
+  string?, // label
+  string?, // url
+  string?, // className
+  string?, // adType
+  (() => void)?, // click
+  boolean?, // logo
+]
 
 function getDockData(
   lang: string,
-  t: Composer['t']
-): readonly DockItemInterface[] {
+  t: (key: string) => string
+): DockDataTuple[] {
   return [
     [
       undefined,
@@ -100,23 +103,15 @@ function getDockData(
       logout,
     ],
     [undefined, 'position', undefined, 'position'],
-  ] as const
+  ]
 }
 
 export function getDockItems(
   lang: string,
-  t: Composer['t']
+  t: (key: string) => string
 ): readonly DockItemInterface[] {
   return getDockData(lang, t).map(
-    ([
-      icon,
-      label,
-      url,
-      className,
-      adType,
-      click,
-      logo,
-    ]): readonly DockItemInterface[] =>
+    ([icon, label, url, className, adType, click, logo]): DockItemInterface =>
       createDockItem(icon, label, url, className, adType, click, logo)
   )
 }
