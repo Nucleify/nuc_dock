@@ -5,23 +5,21 @@ import { useParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import type { DockItemInterface, PositionType } from 'nucleify'
 import {
   AdDock,
   AdIcon,
   AdLogo,
   AdRadioButton,
   checkIsStaff,
+  type DockItemInterface,
   getDockItems,
   localStorageGetItem,
   localStorageSetItem,
-  NucFriendship,
-  NucShare,
-  NucTerminal,
+  NucDockPopovers,
+  type PositionType,
   positions,
   sessionStorageGetItem,
 } from 'nucleify'
-
 import './_index.scss'
 
 const LOCAL_STORAGE_KEY = 'dock-position'
@@ -141,11 +139,7 @@ export const NucDock = () => {
 
   return (
     <>
-      <div className={`${position} nuc-dock-popovers`}>
-        <NucShare position={position} />
-        <NucFriendship position={position} />
-        <NucTerminal position={position} />
-      </div>
+      <NucDockPopovers position={position} />
 
       <AdDock
         model={dockItems}

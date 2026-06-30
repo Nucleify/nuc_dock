@@ -65,7 +65,13 @@ function getDockData(
       undefined,
       'files',
     ],
-    ['prime:calendar', t('dock-calendar'), undefined, 'disabled-item'],
+    [
+      'prime:calendar',
+      t('dock-calendar'),
+      `/${lang}/calendar`,
+      undefined,
+      'main',
+    ],
     [
       'prime:objects-column',
       t('dock-pagebuilder'),

@@ -1,9 +1,5 @@
 <template>
-  <div :class="position" class="nuc-dock-popovers">
-    <nuc-share :position="position" />
-    <nuc-friendship :position="position" />
-    <nuc-terminal :position="position" />
-  </div>
+  <nuc-dock-popovers :position="position" />
 
   <ad-dock
     :model="dockItems"
@@ -58,7 +54,7 @@
 
 <script setup lang="ts">
 import { useRoute } from 'nuxt/app'
-import { computed } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import {
@@ -66,8 +62,10 @@ import {
   getDockItems,
   localStorageGetItem,
   localStorageSetItem,
+  NucDockPopovers,
   positions,
   sessionStorageGetItem,
+  type PositionType,
 } from 'nucleify'
 
 const route = useRoute()
