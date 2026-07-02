@@ -6,7 +6,7 @@
         class="nuc-sidebar-logo"
         aria-label="Nucleify home"
       >
-        <ad-logo ad-type="main" :dimensions="32" />
+        <ad-logo nui-type="main" :dimensions="32" />
         <span class="nuc-sidebar-logo-label">Nucleify</span>
       </nuxt-link>
     </div>
@@ -26,12 +26,12 @@
             v-if="item.url"
             :to="item.url"
             class="nuc-sidebar-link"
-            :ad-type="item.adType"
+            :nui-type="item.nuiType"
           >
             <ad-icon
               v-if="item.icon"
               :icon="item.icon"
-              :ad-type="item.adType"
+              :nui-type="item.nuiType"
               size="1.25em"
             />
             <span>{{ item.label }}</span>

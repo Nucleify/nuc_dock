@@ -73,7 +73,7 @@
     gap: 0.125rem;
   }
 
-  &-item.is-active &-link:not([ad-type], [data-ad-type]) {
+  &-item.is-active &-link:not([nui-type], [data-nui-type]) {
     color: $white-text-color;
     background: rgba($white-text-color-rgb, 0.09);
     border-color: rgba($white-text-color-rgb, 0.12);

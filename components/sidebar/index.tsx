@@ -72,7 +72,7 @@ export function NucSidebar(): JSX.Element {
           className="nuc-sidebar-logo"
           aria-label="Nucleify home"
         >
-          <AdLogo adType="main" dimensions={32} />
+          <AdLogo nuiType="main" dimensions={32} />
           <span className="nuc-sidebar-logo-label">Nucleify</span>
         </Link>
       </div>
@@ -94,12 +94,12 @@ export function NucSidebar(): JSX.Element {
                 <Link
                   href={item.url}
                   className="nuc-sidebar-link"
-                  {...(item.adType ? { 'data-ad-type': item.adType } : {})}
+                  {...(item.nuiType ? { 'data-nui-type': item.nuiType } : {})}
                 >
                   {item.icon ? (
                     <AdIcon
                       icon={item.icon}
-                      adType={item.adType}
+                      nuiType={item.nuiType}
                       size="1.25em"
                     />
                   ) : null}

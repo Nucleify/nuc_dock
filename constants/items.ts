@@ -12,7 +12,7 @@ const createDockItem = (
   label?: string,
   url?: string,
   className?: string,
-  adType?: string,
+  nuiType?: string,
   click?: () => void,
   logo?: boolean
 ): DockItemInterface =>
@@ -21,7 +21,7 @@ const createDockItem = (
     label,
     url,
     class: className,
-    adType,
+    nuiType,
     click,
     logo,
   }) as const
@@ -119,10 +119,10 @@ export function getDockItems(
       label,
       url,
       className,
-      adType,
+      nuiType,
       click,
       logo,
     ]): readonly DockItemInterface[] =>
-      createDockItem(icon, label, url, className, adType, click, logo)
+      createDockItem(icon, label, url, className, nuiType, click, logo)
   )
 }

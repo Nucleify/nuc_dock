@@ -36,7 +36,7 @@ export const NucDock = () => {
     if (item.logo) {
       return (
         <Link href={item.url || '#'} aria-label={item.label}>
-          <AdLogo adType="main" />
+          <AdLogo nuiType="main" />
         </Link>
       )
     }
@@ -57,7 +57,7 @@ export const NucDock = () => {
           <AdIcon
             icon={item.icon}
             className="item"
-            adType={item.adType}
+            nuiType={item.nuiType}
             size="1.7em"
           />
         </Link>
@@ -91,7 +91,7 @@ export const NucDock = () => {
                 }
               }}
               className={`${pos.value} flex`}
-              adType="main"
+              nuiType="main"
               unstyled
             />
           ))}

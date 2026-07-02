@@ -9,7 +9,7 @@
   >
     <template #item="{ item }">
       <a v-if="item.logo" :href="item.url" :aria-label="item.label">
-        <ad-logo ad-type="main" />
+        <ad-logo nui-type="main" />
       </a>
 
       <nuxt-link
@@ -21,7 +21,7 @@
         <ad-icon
           :icon="item.icon"
           class="item"
-          :ad-type="item.adType"
+          :nui-type="item.nuiType"
           @click="item.click"
           size="1.7em"
         />
@@ -43,7 +43,7 @@
           v-model="position"
           :value="pos.value"
           :class="pos.value"
-          ad-type="main"
+          nui-type="main"
           class="flex"
           unstyled
         />

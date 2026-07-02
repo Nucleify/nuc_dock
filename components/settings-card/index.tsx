@@ -41,7 +41,7 @@ export function NucDockSettingsCard({
         <li className="settings-card-item">
           <AdLabel label={t('settings-dock-style')} forInput="dock-style" />
           <AdSelectButton
-            adType="main"
+            nuiType="main"
             value={toolbarStyle}
             options={styleOptions}
             optionLabel="label"

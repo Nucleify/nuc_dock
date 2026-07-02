@@ -6,7 +6,7 @@ const createDockItem = (
   label?: string,
   url?: string,
   className?: string,
-  adType?: string,
+  nuiType?: string,
   click?: () => void,
   logo?: boolean
 ): DockItemInterface => ({
@@ -14,7 +14,7 @@ const createDockItem = (
   label,
   url,
   class: className,
-  adType,
+  nuiType,
   click,
   logo,
 })
@@ -24,7 +24,7 @@ type DockDataTuple = [
   string?, // label
   string?, // url
   string?, // className
-  string?, // adType
+  string?, // nuiType
   (() => void)?, // click
   boolean?, // logo
 ]
@@ -117,7 +117,7 @@ export function getDockItems(
   t: (key: string) => string
 ): readonly DockItemInterface[] {
   return getDockData(lang, t).map(
-    ([icon, label, url, className, adType, click, logo]): DockItemInterface =>
-      createDockItem(icon, label, url, className, adType, click, logo)
+    ([icon, label, url, className, nuiType, click, logo]): DockItemInterface =>
+      createDockItem(icon, label, url, className, nuiType, click, logo)
   )
 }

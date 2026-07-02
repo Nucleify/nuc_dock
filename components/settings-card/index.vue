@@ -9,7 +9,7 @@
           :options="styleOptions"
           option-label="label"
           option-value="value"
-          ad-type="main"
+          nui-type="main"
           @update:model-value="setToolbarStyle"
         />
       </li>
